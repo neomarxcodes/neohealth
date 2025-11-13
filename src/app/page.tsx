@@ -13,8 +13,8 @@ export default function Home() {
       <Header />
       <Hero />
       <HowItWorks />
-      <WhatToAsk />
       <PricingSection />
+      <WhatToAsk />
       <CTA />
       <Footer />
     </div>
