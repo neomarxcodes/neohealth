@@ -10,7 +10,7 @@ function Header() {
 
     <div className="max-w-6xl mx-auto flex justify-between items-center ">
       <Link href="/" className="flex items-center gap">
-        <Image src={"/logo.png"} alt="NeoHealth Logo" width={40} height={40} className="w-15" />
+        <Image src={"/logo.png"} alt="NeoHealth Logo" width={40} height={40} className="w-17" />
         <span className="font=semibold text-lg">NeoHealth</span>
       </Link>
 
