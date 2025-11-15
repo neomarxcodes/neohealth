@@ -13,6 +13,7 @@ import Link from "next/link";
 interface AppointmentConfirmationModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  emailSent: boolean;
   appointmentDetails: {
     doctorName: string;
     appointmentDate: string;
@@ -25,6 +26,7 @@ export function AppointmentConfirmationModal({
   open,
   onOpenChange,
   appointmentDetails,
+  emailSent,
 }: AppointmentConfirmationModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -45,27 +47,29 @@ export function AppointmentConfirmationModal({
 
         <div className="space-y-6">
           {/* Email Notification Section */}
-          <div className="flex flex-col items-center space-y-3">
-            <div className="relative">
-              <Image
-                src="/email-sent.png"
-                alt="Email sent"
-                width={120}
-                height={120}
-                className="mx-auto"
-              />
-            </div>
+          {emailSent && (
+            <div className="flex flex-col items-center space-y-3">
+              <div className="relative">
+                <Image
+                  src="/email-sent.png"
+                  alt="Email sent"
+                  width={120}
+                  height={120}
+                  className="mx-auto"
+                />
+              </div>
 
             <div className="text-center space-y-1">
               <div className="flex items-center justify-center gap-2 text-sm font-medium text-primary">
                 <MailIcon className="h-4 w-4" />
-                Details sent to your inbox
+                  Details sent to your inbox
               </div>
               {appointmentDetails?.userEmail && (
                 <p className="text-xs text-muted-foreground">{appointmentDetails.userEmail}</p>
               )}
             </div>
           </div>
+        )}
 
           {/* Appointment Summary */}
           {appointmentDetails && (
