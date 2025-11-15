@@ -29,7 +29,7 @@ export default async function WelcomeSection() {
       </div>
 
       <div className="lg:flex hidden items-center justify-center size-32 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full ">
-        <Image src="/logo.png" alt="NeoHealth" width={58} height={58} className="w-20 h-15" />
+        <Image src="/logo.png" alt="NeoHealth" width={58} height={58} className="w-30 h-20" />
       </div>
     </div>
   );

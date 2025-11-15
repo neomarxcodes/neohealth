@@ -32,7 +32,7 @@ export default function MainActions() {
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span className="text-sm">Instant pain relief advice</span>
+              <span className="text-sm">Instant health advice</span>
             </div>
           </div>
 

@@ -30,8 +30,7 @@ function PricingSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Book appointments for free and upgrade for unlimited AI consultations. Perfect for
-            ongoing health care.
+            Book appointments for free and upgrade for unlimited AI consultations. Perfect for ongoing health care.
           </p>
         </div>
 
