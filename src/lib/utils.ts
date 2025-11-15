@@ -26,3 +26,42 @@ export const formatPhoneNumber = (value: string) => {
   }
   return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
 };
+
+//  ai generated 🎉
+export const getNext5Days = () => {
+  const dates = [];
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  for (let i = 0; i < 5; i++) {
+    const date = new Date(tomorrow);
+    date.setDate(date.getDate() + i);
+    dates.push(date.toISOString().split("T")[0]);
+  }
+
+  return dates;
+};
+
+export const getAvailableTimeSlots = () => {
+  return [
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+  ];
+};
+
+export const APPOINTMENT_TYPES = [
+  { id: "consultation", name: "Consultation", duration: "30 min", price: "$95" },
+  { id: "emergency", name: "Urgent/Same Day Visit", duration: "20 min", price: "$350" },
+  { id: "checkup", name: "Routine Check-Up", duration: "30-45 min", price: "$150" },
+  { id: "cleaning", name: "Follow-Up", duration: "15 min", price: "$75" },
+];
