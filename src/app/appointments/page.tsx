@@ -18,9 +18,10 @@ function AppointmentsPage() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedType, setSelectedType] = useState("");
-  const [currentStep, setCurrentStep] = useState(1); // 1: select dentist, 2: select time, 3: confirm
+  const [currentStep, setCurrentStep] = useState(1); // 1: select doctor, 2: select time, 3: confirm
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [bookedAppointment, setBookedAppointment] = useState<any>(null);
+  const [emailSent, setEmailSent] = useState(false);
 
   const bookAppointmentMutation = useBookAppointment();
   const { data: userAppointments = [] } = useUserAppointments();
@@ -71,9 +72,16 @@ function AppointmentsPage() {
               }),
             });
 
-            if (!emailResponse.ok) console.error("Failed to send confirmation email");
+            if (emailResponse.ok) {
+              setEmailSent(true);
+            } else {
+              console.error("Failed to send confirmation email");
+              toast.error("Appointment booked, but confirmation email failed to send");
+            }
+
           } catch (error) {
             console.error("Error sending confirmation email:", error);
+            toast.error("Appointment booked, but confirmation email failed to send");
           }
 
           // show the success modal
@@ -144,6 +152,7 @@ function AppointmentsPage() {
         <AppointmentConfirmationModal
           open={showConfirmationModal}
           onOpenChange={setShowConfirmationModal}
+          emailSent={emailSent}
           appointmentDetails={{
             doctorName: bookedAppointment.doctorName,
             appointmentDate: format(new Date(bookedAppointment.date), "EEEE, MMMM d, yyyy"),

@@ -36,7 +36,7 @@ function AppointmentConfirmationEmail({
         <Container style={container}>
           <Section style={logoContainer}>
             <Img
-              // src="https://i.ibb.co.com/tRy6cC2/logo.png", make this the url that is the logo
+              // src={`${process.env.NEXT_PUBLIC_APP_URL}/logo.png`}, logo url
               width="50"
               height="50"
               alt="NeoHealth"
